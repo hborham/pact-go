@@ -1,0 +1,32 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-test-osx:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: make build and test
+      - run: scripts/ci/build-and-test.sh
+
+  build-and-test-ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: make build and test
+      - run: scripts/ci/build-and-test.sh
+
+
+  build-and-test-windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: make build and test
+      - run: scripts/ci/build-and-test.sh
